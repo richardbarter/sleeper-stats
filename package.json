@@ -3,18 +3,30 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "lint": "eslint ./ --ext .vue,.js,.cjs --fix --ignore-path .gitignore",
+        "format": "prettier --write src/"
     },
     "devDependencies": {
         "@inertiajs/vue3": "^1.0.0",
+        "@rushstack/eslint-patch": "^1.10.3",
         "@tailwindcss/forms": "^0.5.3",
         "@vitejs/plugin-vue": "^5.0.0",
+        "@vue/eslint-config-prettier": "^9.0.0",
         "autoprefixer": "^10.4.12",
         "axios": "^1.6.4",
+        "eslint": "^9.4.0",
+        "eslint-plugin-vue": "^9.26.0",
         "laravel-vite-plugin": "^1.0",
         "postcss": "^8.4.31",
+        "prettier": "^3.3.1",
         "tailwindcss": "^3.2.1",
         "vite": "^5.0",
         "vue": "^3.4.0"
+    },
+    "dependencies": {
+        "primeicons": "^7.0.0",
+        "primevue": "^4.0.4",
+        "tailwindcss-primeui": "^0.3.4"
     }
 }

@@ -1,11 +1,29 @@
 <?php
 
+use App\Http\Controllers\BestBallController;
+use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+
+
 Route::get('/', function () {
+    //landing page:
+    //dd('test');
+    return Inertia::render('Landing');
+});
+
+Route::get('/leagues/{league}', [LeagueController::class, 'show'])->name('leagues.show');
+
+
+
+
+//bestball is just a custom thing to sort my own bestball rankings for draftkings. 
+Route::get('/bestball', [BestBallController::class, 'index'])->name('bestball.index');
+
+Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
