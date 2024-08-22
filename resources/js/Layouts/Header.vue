@@ -2,7 +2,7 @@
     <div
         class="w-full px-1 pt-5 pb-5 bg-gradient-to-r from-primary-500/20 via-primary-500/10 to-surface-500/20"
     >
-        <Menubar :model="items" />
+        <!-- <Menubar :model="items" /> -->
     </div>
 </template>
 <!-- bg-gradient-to-r from-orange-300 to-red-500

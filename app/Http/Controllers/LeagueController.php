@@ -24,6 +24,7 @@ class LeagueController extends Controller
     // ]);
 
 
+    //console/commands UpdateNFLPlayers needs to be run to populate the nfl players table locally
     public function show($leagueId)
     {
 
@@ -48,8 +49,8 @@ class LeagueController extends Controller
         //do I need to combine all of these different datapoints, into a limited response object that only contains the data that I need to use?
 
 
-        //dd($leagueData, $rostersData, $leagueUsers);
-        // Pass data to your view or Inertia response
+        //dd($leagueData, $userRosterData, $powerRankings);
+    
         return Inertia::render('League/Show', [
             'league' => $leagueData,
             'userRosterData' => $userRosterData,
@@ -58,35 +59,4 @@ class LeagueController extends Controller
 
     }
 
-    // $leagueUrl = "https://api.sleeper.app/v1/league/{$leagueId}";
-        // $rostersUrl = "{$leagueUrl}/rosters";
-
-        // // Fetch league data
-        // $leagueResponse = Http::get($leagueUrl);
-        // $leagueData = $leagueResponse->json();
-
-        // // Fetch rosters data
-        // $rostersResponse = Http::get($rostersUrl);
-        // $rostersData = $rostersResponse->json();
-
-        // // Optionally, you can fetch more data as needed
-        // // $usersData = Http::get("{$leagueUrl}/users")->json();
-        // // $matchupsData = Http::get("{$leagueUrl}/matchups")->json();
-        // // Process other endpoints similarly
-
-        // // Extract player IDs from rosters
-        // $playerIds = collect($rostersData)->flatMap(function ($roster) {
-        //     return $roster['players'] ?? [];
-        // })->unique()->all();
-
-        // // Query local database for player details
-        // $players = NflPlayer::whereIn('player_id', $playerIds)->get();
-
-        // // Prepare data for the view or as a response
-        // return view('leagues.show', [
-        //     'league' => $leagueData,
-        //     'rosters' => $rostersData,
-        //     'players' => $players,
-        //     // Include other necessary data
-        // ]);
 }

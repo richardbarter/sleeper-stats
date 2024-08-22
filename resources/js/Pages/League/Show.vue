@@ -7,10 +7,23 @@
         <Heading class="mb-3">{{ league.name }}</Heading>
         <div class="flex gap-x-5">
             <Card class="">
-                <template #title><Heading>Power Rankings</Heading></template>
+                <template #title><Heading>Rankings</Heading></template>
                 <template #content>
                     <DataTable :value="powerRankings" size="small">
-                        <Column field="teamName" header="Team Name"></Column>
+                        <!-- <Column field="teamName" header="Team Name"></Column> -->
+                        <Column header="Team Name">
+                            <template #body="slotProps">
+                                <div class="flex gap-3">
+                                    {{ slotProps.data.rank }}
+                                    <img
+                                        :src="`https://sleepercdn.com/avatars/thumbs/${slotProps.data.avatar}`"
+                                        :alt="slotProps.data.teamName"
+                                        class="w-5 rounded-full"
+                                    />
+                                    {{ slotProps.data.teamName }}
+                                </div>
+                            </template>
+                        </Column>
                         <Column field="wlt" header="W-L-T"></Column>
                         <Column field="pts_for" header="Points For"></Column>
                         <Column

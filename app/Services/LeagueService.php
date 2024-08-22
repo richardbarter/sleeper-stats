@@ -100,6 +100,7 @@ class LeagueService
         $powerRankings = $userRosterData->map(function ($userRoster)  {
             return [
                 'teamName' => $userRoster['user_data']['display_name'],
+                'avatar' => $userRoster['user_data']['avatar'],
                 'wins' => $userRoster['roster_data']['settings']['wins'],
                 'losses' => $userRoster['roster_data']['settings']['losses'],
                 'pts_for' => $userRoster['roster_data']['settings']['fpts'] + $userRoster['roster_data']['settings']['fpts_decimal'] / 100,
